@@ -32,10 +32,11 @@ function htmlurl($string) {
 	<? foreach ($data['entries'] as $entry): ?>
 		<tr>
 			<th><?= htmlspecialchars($entry['name']) ?></th>
-			<td><a href="./3-download.php?shared=<?= htmlurl($shared) ?>&id=<?= htmlurl($entry['id']) ?>&path=<?= htmlurl($path . '/' . $entry['name']) ?>">SELECT</a></td>
 			<td>
 				<? if ($entry['.tag'] == 'folder'): ?>
 					<a href="?shared=<?= htmlurl($shared) ?>&path=<?= htmlurl($path . '/' . $entry['name']) ?>">Open</a>
+				<? else: ?>
+					<a href="./3-download.php?shared=<?= htmlurl($shared) ?>&id=<?= htmlurl($entry['id']) ?>&path=<?= htmlurl($path . '/' . $entry['name']) ?>">SELECT</a>
 				<? endif ?>
 			</td>
 		</tr>

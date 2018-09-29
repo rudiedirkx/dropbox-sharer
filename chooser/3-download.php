@@ -25,6 +25,8 @@ $options = [
 // echo $data;
 
 $cmd = "curl -X POST --header 'Authorization: Bearer $token' --header 'Dropbox-API-Arg: " . json_encode($options) . "' https://content.dropboxapi.com/2/sharing/get_shared_link_file";
-echo "$cmd\n";
+// echo "$cmd\n";
 $data = shell_exec($cmd);
+
+header('Content-disposition: attachment; filename="' . urlencode(basename($path)) . '"');
 echo $data;
